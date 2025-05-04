@@ -264,7 +264,12 @@ store-rating/
    - Ensure backend server is running on the expected port
 
 ## OutPut
-![Alt Text](https://github.com/PranjalTripatHI07/store-rating-app/blob/main/clipgif1.gif)
+
+![Store Rating app 0](https://github.com/PranjalTripatHI07/store-rating-app/blob/main/clipgif1.gif)
+
+![Store Rating app 1](https://github.com/PranjalTripatHI07/store-rating-app/blob/main/clipgif1.gif)
+
+
 
 
 
