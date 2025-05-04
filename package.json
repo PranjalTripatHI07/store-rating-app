@@ -1,0 +1,21 @@
+{
+  "name": "store-rating-app",
+  "version": "1.0.0",
+  "description": "Store Rating Application",
+  "main": "index.js",
+  "scripts": {
+    "server": "cd server && npm start",
+    "client": "cd client && npm start",
+    "server:dev": "cd server && npm run dev",
+    "install:server": "cd server && npm install",
+    "install:client": "cd client && npm install",
+    "install": "npm run install:server && npm run install:client",
+    "migrate": "cd server && npm run migrate",
+    "seed": "cd server && npm run seed",
+    "dev": "concurrently \"npm run server:dev\" \"npm run client\"",
+    "start": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  }
+} 
