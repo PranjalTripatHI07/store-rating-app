@@ -265,7 +265,7 @@ store-rating/
 
 ## OutPut
 
-![Store Rating app 0](https://github.com/PranjalTripatHI07/store-rating-app/blob/main/clipgif1.gif)
+![Store Rating app 0](https://github.com/PranjalTripatHI07/store-rating-app/blob/main/clipgif2.gif)
 
 ![Store Rating app 1](https://github.com/PranjalTripatHI07/store-rating-app/blob/main/clipgif1.gif)
 
