@@ -263,6 +263,11 @@ store-rating/
    - Verify the proxy setting in client/package.json
    - Ensure backend server is running on the expected port
 
+## OutPut
+
+![Store rating app ](assets/clipgif1.gif)
+
+
 ## License
 
 This project is open source and available under the [Pranjal Tripathi](LICENSE).
