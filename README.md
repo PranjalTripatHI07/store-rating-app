@@ -271,6 +271,10 @@ store-rating/
 
 ![Store Rating app](https://github.com/PranjalTripatHI07/store-rating-app/blob/main/clipgif1.gif)
 
+![Store Rating app](https://github.com/PranjalTripatHI07/store-rating-app/blob/main/clipgif5.gif)
+
+
+
 
 
 
