@@ -36,7 +36,7 @@ A web application that allows users to submit ratings for stores registered on t
 
 # MySQL Database Schema for Store Rating Application
 
-Here's the MySQL database schema for the store rating application based on the codebase:
+Here's the MySQL database schema for the store rating application.
 
 ```sql
 -- Create the database (if not exists)
