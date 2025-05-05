@@ -33,6 +33,87 @@ A web application that allows users to submit ratings for stores registered on t
    - View users who have rated their store
    - See average store rating
 
+
+# MySQL Database Schema for Store Rating Application
+
+Here's the MySQL database schema for the store rating application based on the codebase:
+
+```sql
+-- Create the database (if not exists)
+CREATE DATABASE IF NOT EXISTS store_rating_db;
+USE store_rating_db;
+
+-- Users table
+CREATE TABLE Users (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(60) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  address VARCHAR(400) NOT NULL,
+  role ENUM('admin', 'user', 'store_owner') NOT NULL DEFAULT 'user',
+  createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatedAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Stores table
+CREATE TABLE Stores (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(60) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  address VARCHAR(400) NOT NULL,
+  ownerId INT NOT NULL,
+  createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatedAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (ownerId) REFERENCES Users(id) ON DELETE CASCADE
+);
+
+-- Ratings table
+CREATE TABLE Ratings (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  rating INT NOT NULL CHECK (rating BETWEEN 1 AND 5),
+  userId INT NOT NULL,
+  storeId INT NOT NULL,
+  createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatedAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (userId) REFERENCES Users(id) ON DELETE CASCADE,
+  FOREIGN KEY (storeId) REFERENCES Stores(id) ON DELETE CASCADE,
+  UNIQUE KEY unique_user_store (userId, storeId)
+);
+```
+
+## Schema Details
+
+### Users Table
+- **id**: Auto-incrementing primary key
+- **name**: User's full name (20-60 characters)
+- **email**: Unique email address
+- **password**: Hashed password (stored as 8-16 characters with at least one uppercase letter and one special character)
+- **address**: User's address (max 400 characters)
+- **role**: User role (admin, user, or store_owner)
+- **createdAt/updatedAt**: Timestamp fields for record creation and updates
+
+### Stores Table
+- **id**: Auto-incrementing primary key
+- **name**: Store name (20-60 characters)
+- **email**: Unique store email
+- **address**: Store address (max 400 characters)
+- **ownerId**: Foreign key reference to Users table (must be a store_owner)
+- **createdAt/updatedAt**: Timestamp fields for record creation and updates
+
+### Ratings Table
+- **id**: Auto-incrementing primary key
+- **rating**: Integer value between 1-5
+- **userId**: Foreign key reference to Users table (the user who submitted the rating)
+- **storeId**: Foreign key reference to Stores table (the store being rated)
+- **createdAt/updatedAt**: Timestamp fields for record creation and updates
+- A unique constraint ensures one user can only have one rating per store
+
+The schema follows the Sequelize ORM models defined in the application and includes proper relationships between tables with foreign key constraints.
+
+
+
+
+
 ## Setup Instructions
 
 ### Prerequisites
